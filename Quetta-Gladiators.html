@@ -1,0 +1,527 @@
+<!--I,Syed Mohib Mohyuddin 199334 of BSCS 6C, 
+	hereby declare that this file entitled “Quetta-Gladiators” submitted as an assignment for the course CS344: Web Engineering,
+	is a record of an original work done by me and that no part has been plagiarized.-->
+
+<!doctype>
+<html>
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Quetta-Gladiators</title>
+<style>
+
+div#header{
+			height:40px;
+			width:100%;
+			background-color:#3b1261;
+}
+
+div#social-media{
+				position:absolute;
+				margin-left:1160px;
+				margin-top:8px
+}
+
+#navigation li a {
+				display: block;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+}
+
+#navigation li{display:inline-block}
+#navigation ul{list-style-type:none;
+			   margin:0;
+			   padding:0;
+			   top:0;
+			   background-color:#b29600}
+li:hover a{
+			background-color:#665600}
+
+div#team{
+		background-color:#3b1261;
+		height:1100px;
+		width:100%;	
+		position:relative;
+		margin-top:-10px
+}			
+
+.container {
+  position:relative;
+  width: 300px;
+  height:300px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color:#b29600;;
+}
+
+.container:hover .overlay {
+  opacity: 0.9;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+table#team{
+			border:collapse;
+}
+
+.image{
+		width:300px;
+		height:300px;
+		border:5px solid #b29600;
+}
+
+div#news-section{
+				background-color:#ccac00;
+				width:100%;
+				height:430px
+}
+
+div#headlines{
+				position:absolute;
+				margin-left:373px;
+				margin-top:40px;
+				border-radius:25px;
+				border:3px solid #551a8b;
+				box-shadow: 0 8px 8px 3px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+				width:470px;
+				height:240px;
+				background-image:url(quetta-news.jpg);
+				background-size:cover;
+			    background-repeat:no-repeat
+				
+				}
+
+table#headlines{
+				  width:100%;
+				  height:100%;
+				  border-radius:25px;
+				  text-shadow: 0px 1px;		
+				  font-size:12px;
+				  background-color:white;
+				  opacity:0.6;
+				  border:collapse;
+				  }
+table#headlines a{
+					color:black;
+					font-weight:900
+}
+
+div#next-opponents{
+					width:25%;
+					border-radius:0 0 25px 25px;
+					position:relative; 
+					margin-left:10px;
+					margin-top:20px;
+					border:3px solid #551a8b
+}
+
+div#opponents{
+				background-color:white;
+				border-radius:0 0 25px 25px
+}
+div#opponents:hover{
+					background-color:#551a8b;
+					color:#e5c100;
+}
+
+table#results {
+	position:relative;
+	margin-left:860px;
+	margin-top:-300px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse:collapse;
+    width: 35%;
+}
+
+
+#results th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #551a8b;
+    color: white;
+}
+
+#results td, #results th {
+    border: 3px solid #885ead;
+    padding: 8px;
+}
+
+#results tr:nth-child(even){background-color: #ddd}
+#results tr:nth-child(odd){background-color:#bdbdbd}
+#results tr:hover{color: white}
+#results tr:nth-child(3):hover{background-color: #ff1919}
+#results tr:nth-child(4):hover{background-color: #1919ff}
+#results tr:nth-child(5):hover{background-color: #e5e500;color:black}	
+#results tr:nth-child(6):hover{background-color: #551a8b}
+#results tr:nth-child(7):hover{background-color: black;color:#00b200}
+#results tr:nth-child(8):hover{background-color: #8c264c}
+
+div#interaction{
+				position:absolute;
+				background-color:#3b1261;
+				color:white;
+				width:100%;
+				height:390px
+}
+
+i.fa-home{
+		color:#b29600;
+		border:2px solid #ccac00;
+		border-radius:25px;
+		margin-left:970px;
+		margin-top:40px;
+		padding:10px
+}
+
+i#twitter-footer{
+			color:#b29600;
+			border:2px solid #ccac00;
+			padding:10px;
+			border-radius:25px;
+			margin-left:970px;
+			margin-top:20px	
+}
+
+i#youtube-footer{
+				color:#b29600;
+				border:2px solid #ccac00;
+				padding:10px;
+				border-radius:25px;
+				margin-left:970px;
+				margin-top:20px	
+}
+
+i.fa-home:hover, i#twitter-footer:hover, i#youtube-footer:hover{
+									background-color:#b29600;
+									color:#3b1261
+}
+
+i.fa-home p, i#twitter-footer p, i#youtube-footer p{
+						font-size:15px;
+						font-weight:700;
+						display:inline;
+			
+}
+
+div#tweet{
+				width:30%;
+				height:70%;
+				margin-top:-270px;
+				margin-left:20px;
+				overflow:auto;
+				border:5px solid #ccac00
+}
+
+div#insta{
+				width:24%;
+				height:70%;
+				margin-top:-270px;
+				margin-left:540px;
+				overflow-y:auto;
+				overflow-x:hidden;
+				border:5px solid #ccac00
+}
+
+div#footer{
+		margin-top:390px;
+		background-color:#b29600;
+		color:#3b1261;
+		width:100%;
+		height:40px;
+		text-indent:20px;
+		font-size:14px;
+}
+	
+</style>
+</head>
+<body>
+
+<div id="header">
+	<div id="social-media">
+		<i class="fa fa-facebook w3-xlarge" style="color:#b29600"></i>&nbsp &nbsp &nbsp
+		<i class="fa fa-twitter w3-xlarge"style="color:#b29600"></i>&nbsp &nbsp &nbsp
+		<i class="fa fa-instagram w3-xlarge"style="color:#b29600"></i>&nbsp &nbsp &nbsp
+		<i class="fa fa-youtube w3-xlarge"style="color:#b29600"></i>
+	</div>
+</div>
+
+<div id="navigation">
+	<ul>
+		<li>
+			<a href="">Home</a>
+		</li>
+		<li>
+			<a href="#results">Results</a>
+		</li>
+		<li>
+			<a href="#team">Squad</a>
+		</li>
+		<li>
+			<a href="#news-section">News</a>
+		</li>
+		<li>
+			<a href="#sponsors">Partners</a>
+		</li>
+	</ul>
+</div>
+
+<div>
+<img src="quetta-cover.png"width=100%" height="350px">
+</div>
+
+<div id="team">
+	<center><h2 style="color:#b29600;font-size:35px;font-weight:800">
+	<i>Meet the Gladiators</i></h2></center>
+	
+	<table id="team">
+		<tr>
+			<td>
+				<div class="container" style="margin-left:20px;margin-top:20px">
+					<img src="sarfaraz.png" class="image">
+						<div class="overlay">
+							<div class="text">
+								Sarfaraz Ahmed(C)<br><br>Keeper/Batsman
+							</div>
+						</div>
+				</div>
+			</td>
+			<td>
+				<div class="container" style="margin-left:180px;margin-top:20px">
+					<img src="kevin.png" class="image">
+						<div class="overlay">
+							<div class="text">
+								Kevin Pietersen<br><br>Batsman
+							</div>
+						</div>
+				</div>
+			</td>
+			<td>
+				<div class="container" style="margin-left:180px;margin-top:20px">
+					<img src="watto.png" class="image">
+						<div class="overlay">
+							<div class="text">
+								Shane Watson<br><br>All-Rounder
+							</div>
+						</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+		<td>
+				<div class="container" style="margin-left:20px;margin-top:40px">
+					<img src="rilee.png" class="image">
+						<div class="overlay">
+							<div class="text">
+								Rillee Roussouw<br><br>Batsman
+							</div>
+						</div>
+				</div>
+			</td>
+			<td>
+				<div class="container" style="margin-left:180px;margin-top:40px">
+					<img src="roy.png" class="image">
+						<div class="overlay">
+							<div class="text">
+								Jason Roy<br><br>Batsman
+							</div>
+						</div>
+				</div>
+			</td>
+			<td>
+				<div class="container" style="margin-left:180px;margin-top:40px">
+					<img src="carlos.png" class="image">
+						<div class="overlay">
+							<div class="text">
+								Carlos Braithwate<br><br>All-Rounder
+							</div>
+						</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+		<td>
+				<div class="container" style="margin-left:20px;margin-top:40px">
+					<img src="nawaz.png" class="image">
+						<div class="overlay">
+							<div class="text">
+								Muhammad Nawaz<br><br>All-Rounder
+							</div>
+						</div>
+				</div>
+			</td>
+			<td>
+				<div class="container" style="margin-left:180px;margin-top:40px">
+					<img src="anwar.png" class="image">
+						<div class="overlay">
+							<div class="text">
+								Anwar Ali<br><br>All-Rounder
+							</div>
+						</div>
+				</div>
+			</td>
+			<td>
+				<div class="container" style="margin-left:180px;margin-top:40px">
+					<img src="vivian.png" class="image">
+						<div class="overlay">
+							<div class="text">
+								Sir Vivian<br><br>Coach
+							</div>
+						</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+</div>
+
+<div id="news-section"><br><h1 style="color:#551a8b;font-weight:900;text-indent:20px"><i>WHAT'S NEXT</i></h1>
+	<div id="headlines">
+		<table id="headlines" cellpadding=3px cellspacing=8px>
+			<tr>
+				<th><h2 style="font-weight:900">This week's top stories</h2></th>
+			</tr>
+			<tr>
+				<td><a href="">Sunil Narine reported for Suspect action</a></td>
+			</tr>
+				<tr>
+				<td><a href="">Islamabad United to face Zalmi in HBL PSL final</a></td>
+			</tr>	
+			<tr>
+				<td><a href="">Tickets available for HBL PSL final in Karachi</a></td>
+			</tr>	
+			<tr>
+				<td><a href="">Wahab Riaz reported for ripping off Mitchel Johnson</a></td>
+			</tr>	
+			<tr>
+				<td><a href="">Kevin Pietersen announces retirement from cricket</a></td>
+			</tr>	
+		</table>
+	</div>
+	
+<div class="w3-container">
+  <div class="w3-card-4" id="next-opponents">
+    <img src="multan.png" alt="Multan Sultan" style="width:100%">
+    <div class="w3-container w3-center" id="opponents">
+      <p><b>Our next opponents</b><br>Multan Sultans<br>10th March 2018</p>
+    </div>
+  </div>
+</div>
+
+<table id="results" cellspacing="0">
+	<tr>
+		<th colspan="5"><center>Point's Table</center></th>
+	</tr>
+	<tr>
+		<th>Team</th>
+		<th>Played</th>
+		<th>Won</th>
+		<th>Lost</th>
+		<th>Points</th>
+	</tr>
+	<tr>
+	<td>Islamabad United</td>
+	<td>10</td>
+	<td>7</td>
+	<td>3</td>
+	<td>14</td>
+	</tr>
+	<tr>
+	<td>Karachi Kings</td>
+	<td>10</td>
+	<td>5</td>
+	<td>4</td>
+	<td>11</td>
+	</tr>
+	<tr>
+	<td>Peshawar Zalmi</td>
+	<td>10</td>
+	<td>5</td>
+	<td>5</td>
+	<td>10</td>
+	</tr>
+	<tr>
+	<td>Quetta Gladiators</td>
+	<td>10</td>
+	<td>5</td>
+	<td>5</td>
+	<td>10</td>
+	</tr>
+	<tr>
+	<td>Multan Sultans</td>
+	<td>10</td>
+	<td>4</td>
+	<td>5</td>
+	<td>9</td>
+	</tr>
+	<tr>
+	<td>Lahore Qalandars</td>
+	<td>10</td>
+	<td>3</td>
+	<td>7</td>
+	<td>6</td>
+	</tr>
+</table><br>
+</div>
+
+<h1 id="sponsors" style="color:#ccac00;font-weight:700;text-indent:20px;font-variant:small-caps;font-size:45px;text-shadow:0px 15px 10px #aa8cc5">
+	<i>Special thanks to our sponsors!</i></h1>
+<br>
+<img src="sponsors.png">
+
+<div id="interaction"><h2 style="text-indent:10px;color:#b29600;font-weight:750"><i>INTERACT WITH US</i></h2>
+	<i class="fa fa-home w3-xxlarge"><h4 style="display:inline">Address:</h4>
+		<p>
+			Pakistan Super League Secretariat
+			<br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspGaddafi Stadium Ferozepur Road
+			<br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspLahore
+			<br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspPakistan.
+		</p><br></i>
+		
+	<i class="fa fa-twitter w3-xxlarge" id="twitter-footer"><h4 style="display:inline">Twitter-Handle:</h4>
+		<p>@TeamQuetta</p></i>	
+		
+	<i class="fa fa-youtube w3-xxlarge" id="youtube-footer"><h4 style="display:inline">Youtube-Channel:</h4>
+		<p>Quetta_gladiators</p></i>
+
+	<div id="tweet">
+	<img src="tweet1.png">
+	<img src="tweet2.png">
+	<img src="tweet3.png">
+	<img src="tweet4.png">
+	<img src="tweet5.png">
+	</div>		
+	
+	<div id="insta">
+	<img src="insta1.png">
+	<img src="insta2.png">
+	<img src="insta3.png">
+	<img src="insta4.png">
+	<img src="insta5.png">
+	</div>		
+</div>
+
+<div id="footer">2018 Quetta Gladiators. All rights reserved | Powered By Syed Mohib</div>
+</body>
+</html>

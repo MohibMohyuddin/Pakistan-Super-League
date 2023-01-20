@@ -1,0 +1,550 @@
+<!--I,Syed Mohib Mohyuddin 199334 of BSCS 6C, 
+	hereby declare that this file entitled “PSL-T20” submitted as an assignment for the course CS344: Web Engineering,
+	is a record of an original work done by me and that no part has been plagiarized.-->
+
+<!doctype>
+<html>
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>PSL-T20</title>
+
+<style>
+#live-scores,#results {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+#live-scores td, #live-scores th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#live-scores td:nth-child(even){background-color: #ddd}
+
+#results th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #007f00;
+    color: white;
+}
+
+#results td, #results th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#results tr:nth-child(even){background-color: #ddd}
+#results tr:hover{color: white}
+#results tr:nth-child(3):hover{background-color: #ff1919}
+#results tr:nth-child(4):hover{background-color: #1919ff}
+#results tr:nth-child(5):hover{background-color: #e5e500;color:black}	
+#results tr:nth-child(6):hover{background-color: #551a8b}
+#results tr:nth-child(7):hover{background-color: black;color:#00b200}
+#results tr:nth-child(8):hover{background-color: #8c264c}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity:0;
+  transition: .5s ease;
+  background-color: rgb(0,0,0);
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#navigation li a {
+				display: block;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+}
+
+li:hover a{background-color:rgb(112,128,144)}
+
+#navigation li{display:inline-block}
+
+#navigation ul{list-style-type:none;
+			   margin:0;
+			   padding:0;
+			   top:0;
+			   background-color:rgb(47,79,79)}
+
+#dropdown{display:none;
+		  z-index:1;
+		  position:absolute;
+		  }
+		  
+#teams:hover #dropdown{
+						display:block;
+						}
+
+ul#teams{
+		list-style-type:none;
+		padding:10px;
+		background-color:#000019;
+		font-family:Impact, Charcoal, sans-serif;
+}						
+						
+ul#teams li{
+			display:block;
+			color:white;
+			padding:20px;
+}
+
+ul#teams li:nth-child(1){background-color: #ff1919}
+ul#teams li:nth-child(2){background-color: #551a8b}
+ul#teams li:nth-child(3){background-color: #1919ff}
+ul#teams li:nth-child(4){background-color: black;color:#00b200}
+ul#teams li:nth-child(5){background-color: #e5e500;color:black}
+
+div#hbl{
+		width:100%;
+		padding:20px;
+		text-align:center:
+		font-family:comic-sans-ms;
+		font-weight:750;
+		font-size:40px;
+		background-color:rgb(0,100,0);
+		color:white
+}		
+	
+div#headlines{
+				position:relative;
+				margin-left:-10px;
+				background-color:white;
+				border-radius:25px;
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+				margin:0 20px;
+				width:470px;
+				height:240px;
+				background-image:url(psl-headlines.jpg);
+				background-size:contain;
+			    background-repeat:no-repeat
+				
+				}
+table#headlines{
+				  margin:20px;
+				  font-size:12px;
+				  background-color:white;
+				  opacity:0.7;
+				  border:collapse;
+				  }
+table#headlines a{
+					color:black;
+					font-weight:900
+}	
+
+
+div#sixes,div#fours,div#runs {
+    width: 100px;
+    height: 100px;
+    background: #007f00;
+	text-indent:30px;
+    -webkit-transition: width 3s; /* Safari */
+    -webkit-transition-delay: 1s; /* Safari */
+    transition: width 3s;
+}
+div#sixes h3,div#fours h3,div#runs h3{
+									color:white;
+									font-weight:750;
+									font-size:25px
+}
+
+div#sixes:hover {
+    width: 500px;
+}			  
+
+
+div#fours:hover {
+    width: 700px;
+}	
+
+div#Runs:hover{
+	width:1200px;			
+}
+
+input[type=text]:focus{
+			background-color:#00004c;
+			color:#ccccff
+}
+
+div#interaction{
+				position:absolute;
+				background-color:#00004c;
+				color:white;
+				width:100%;
+				height:350px
+}
+i.fa-envelope-o{
+					position:relative;
+					margin-top:110px;
+					margin-left:-350px;
+					text-indent:10px;
+					padding:5px;
+					border:2px solid #9999ff;
+					border-radius:20px
+}		
+
+div#social-media{
+				position:relative;
+				margin-top:30px;
+				margin-left:8px;
+}  
+
+div#tweet{
+				width:30%;
+				height:70%;
+				overflow:auto;
+				position:relative;
+				margin-left:440px;
+				margin-top:-250px;
+				border:5px solid #6666ff
+}
+div#timer{
+		position:absolute;	
+		margin-left:920px;
+		margin-top:120px;
+		border:2px solid #ff0000;
+		border-radius:10px
+}
+
+p#demo{
+		color:white;
+		font-size:20px;
+		text-indent:120px
+}
+
+div#footer{
+		position:absolute;
+		margin-top:350px;
+		background-color:#000019;
+		color:white;
+		width:100%;
+		height:40px;
+		text-indent:20px;
+		font-size:13px
+}
+
+i#email:hover, i#address:hover{
+						background-color:#9999ff;
+						color:#00004c;
+}
+
+</style>
+</head>
+<body>
+<table id="live-scores">
+<tr>
+	<td><div class="container">
+	Islamabad 125(20)<br>Quetta 124(18.2)
+		<div class="overlay">
+			<div class="text">Lahore lost!</div>
+		</div>
+	</div>
+	</td>
+	<td><div class="container">
+	Multan 155(20)<br>Peshawar 130(18.2)
+		<div class="overlay">
+			<div class="text">Lahore lost!</div>
+		</div>
+	</div>
+	</td>
+	<td><div class="container">
+	Islamabad 125(20)<br>Karachi 124(18.2)
+		<div class="overlay">
+			<div class="text">Lahore lost!</div>
+		</div>
+	</div>
+	</td>
+	<td><div class="container">
+	Lahore 125(20)<br>Quetta 124(18.2)
+		<div class="overlay">
+			<div class="text">Lahore lost!</div>
+		</div>
+	</div>
+	</td>
+	<td><div class="container">
+	Islamabad 125(20)<br>Quetta 124(18.2)
+		<div class="overlay">
+			<div class="text">Lahore lost!</div>
+		</div>
+	</div>
+	</td>
+</tr>
+
+</table>
+<div id="navigation">
+	<ul>
+	<li><a href="">Home</a></li>
+	<li id="teams"><a href="#team">Teams</a>
+		<div id="dropdown">
+		<ul id="teams">
+		<li><div class="container">
+			Islamabad United
+			<div class="overlay" style="background-color:transparent;background-image:url(ISB.png);background-size:contain"><center>
+				</div></div></li>
+		<li><div class="container">
+			Quetta Gladiators
+			<div class="overlay" style="background-color:transparent;background-image:url(QG.jpg);background-size:contain"><center>
+				</div></div></li>
+		<li><div class="container">
+			Karachi Kings	
+				<div class="overlay" style="background-color:transparent;background-image:url(KK.jpg);background-size:contain"><center>
+				</div></div></li>
+		<li><div class="container">
+			Multan Sultans
+			<div class="overlay" style="background-color:transparent;background-image:url(multan.png);background-size:contain"><center>
+				</div></div></li>
+		<li><div class="container">
+			Peshawar Zalmi
+			<div class="overlay" style="background-color:transparent;background-image:url(PZ.jpg);background-size:contain"><center>
+				</div></div></li>		
+		</ul>
+		</div></li>
+	<li><a href="#tickets">Buy Tickets</a></li>
+	<li><a href="#results">Results</a></li>
+	</ul>
+</div>
+<img src="psl-home.jpg"width="100%" height="350px">
+<br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+<div class="w3-container">
+  <div class="w3-card-4" style="width:24%;border-radius:25px;position:absolute;margin-top:-225px">
+    <img src="pakistan.jpg" alt="Pakistan Day" style="width:100%">
+    <div class="w3-container w3-center">
+      <p><b>Happy 23rd March</b><br>Long Live Pakistan<br>Long live PSL</p>
+    </div>
+  </div>
+</div>
+
+<div class="w3-container">
+  <div class="w3-card-4" style="width:20%;border-radius:25px;position:absolute;margin-left:380px;margin-top:-225px">
+    <img src="kami.jpg" alt="Kamran Akmal" style="width:100%">
+    <div class="w3-container w3-center">
+      <p>Kamran Akmal<br>Unlikely leading run scorer<br>Runs:<b>424</b></p>
+    </div>
+  </div>
+</div>
+
+<div class="w3-container">
+  <div class="w3-card-4" style="width:17%;border-radius:25px;position:absolute;margin-left:720px;margin-top:-230px">
+    <img src="fahim2.jpg" alt="Fahim Ashraf" style="width:100%">
+    <div class="w3-container w3-center">
+      <p>Faheem Ashraf<br>Wow kia bowler hai<br>Wickets:<b>17</b></p>
+    </div>
+  </div>
+</div>
+
+<div class="w3-container">
+  <div class="w3-card-4" style="width:22%;border-radius:25px;position:absolute;margin-left:1017px;margin-top:-230px">
+    <img src="kp.jpg" alt="Kevin Pietersen" style="width:100%">
+    <div class="w3-container w3-center">
+      <p><b>Pick Of The Week</b><br>Quetta Gladiator's<br>Kevin Pietersen</p>
+    </div>
+  </div>
+</div><br><br>
+
+<table id="results">
+	<tr>
+		<th colspan="5"><center>Point's Table</center></th>
+	</tr>
+	<tr>
+		<th>Team</th>
+		<th>Played</th>
+		<th>Won</th>
+		<th>Lost</th>
+		<th>Points</th>
+	</tr>
+	<tr>
+	<td>Islamabad United</td>
+	<td>10</td>
+	<td>7</td>
+	<td>3</td>
+	<td>14</td>
+	</tr>
+	<tr>
+	<td>Karachi Kings</td>
+	<td>10</td>
+	<td>5</td>
+	<td>4</td>
+	<td>11</td>
+	</tr>
+	<tr>
+	<td>Peshawar Zalmi</td>
+	<td>10</td>
+	<td>5</td>
+	<td>5</td>
+	<td>10</td>
+	</tr>
+	<tr>
+	<td>Quetta Gladiators</td>
+	<td>10</td>
+	<td>5</td>
+	<td>5</td>
+	<td>10</td>
+	</tr>
+	<tr>
+	<td>Multan Sultans</td>
+	<td>10</td>
+	<td>4</td>
+	<td>5</td>
+	<td>9</td>
+	</tr>
+	<tr>
+	<td>Lahore Qalandars</td>
+	<td>10</td>
+	<td>3</td>
+	<td>7</td>
+	<td>6</td>
+	</tr>
+</table><br>
+
+<h2><i>Fun Statistics</i></h2>
+<div>
+<div id="sixes"><h3><i>6's</i></h3></div><div style="position:absolute;margin:-80px 0 0 0;text-indent:500px;font-family:comic-sans-ms;font-size:50px">969</div>
+<div id="fours"><h3><i>4's</i></h3></div><div style="position:absolute;margin:-80px 0 0 0;text-indent:700px;font-family:comic-sans-ms;font-size:50px">1074</div>
+<div id="runs"><h3><i>Runs!</i></h3></div><div style="position:absolute;margin:-80px 0 0 0;text-indent:1200px;font-family:comic-sans-ms;font-size:50px">9902</div>
+</div>
+<br>
+<div id="headlines">
+<table id="headlines" cellpadding=3px cellspacing=8px>
+	<tr>
+		<th><h2 style="font-weight:900">This week's top stories</h2></th>
+	</tr>
+	<tr>
+		<td><a href="">Sunil Narine reported for Suspect action</a></td>
+	</tr>
+		<tr>
+		<td><a href="">Islamabad United to face Zalmi in HBL PSL final</a></td>
+	</tr>	
+	<tr>
+		<td><a href="">Tickets available for HBL PSL final in Karachi</a></td>
+	</tr>	
+	<tr>
+		<td><a href="">Wahab Riaz reported for ripping off Mitchel Johnson</a></td>
+	</tr>	
+	<tr>
+		<td><a href="">Kevin Pietersen announces retirement from cricket</a></td>
+	</tr>	
+</table>
+</div>
+
+<div id="tickets" style="position:absolute;margin-top:-240px;margin-left:530px">
+	<a href="http://www.yayvo.com/psl-tickets" target="_blank">
+		<img src="tickets.png"width="80%"height="40%">
+	</a>		
+</div>	
+
+<div style="margin-top:-130px;margin-left:860px;border:3px solid #6666ff;height:55px;width:455px">
+	<form>
+		<input type="text" placeholder="Enter Email to join the PSL-MELA.." style="width:450px;height:50px">
+	</form>
+</div>
+
+<div id="team" style="position:relative;margin-top:150px;">
+	<h1><i><center>Our Teams for HBL PSL Season 3</center></i></h1>
+	<img src="teams.png" width="100%" height="auto">
+</div>
+
+<div id="interaction">
+<h2 style="text-indent:10px;color:white;font-weight:750"><i>INTERACT WITH US</i></h2><br><br>
+<i class="fa fa-home w3-xxlarge" id="address"style="text-indent:10px;float:left;border:2px solid #9999ff;border-radius:20px">
+			<h4 style="display:inline">Address:</h4>
+			<p style="clear:left;display:inline;font-size:15px;text-indent:10px; text-align: justify;text-justify: inter-word;">
+			Pakistan Super League Secretariat
+			<br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Gaddafi Stadium Ferozepur Road
+			<br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Lahore
+			<br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Pakistan.</p><br></i>
+			
+<i class="fa fa-envelope-o w3-xxlarge" id="email">
+	<h4 style="display:inline">Email:</h4>
+	<p style="font-size:15px;display:inline">
+	info@psl-t20.com
+	</p>
+</i>
+<div id="social-media">
+<i class="fa fa-facebook w3-xxlarge"></i>&nbsp &nbsp &nbsp
+<i class="fa fa-twitter w3-xxlarge"></i>&nbsp &nbsp &nbsp
+<i class="fa fa-instagram w3-xxlarge"></i>&nbsp &nbsp &nbsp
+<i class="fa fa-youtube w3-xxlarge"></i>
+</div>
+
+<div id="tweet">
+	<img src="tweet1.png">
+	<img src="tweet2.png">
+	<img src="tweet3.png">
+	<img src="tweet4.png">
+	<img src="tweet5.png">
+</div>			
+</div>
+
+<div id="timer">
+<p style="font-weight:800;color:white;text-indent:123px;font-size:20px"><i>THE FINAL</i>
+<p style="font-size:15px;color:white"><b>Islamabad United V Peshawar Zalmi starts </b></p>
+<p id="demo"></p>
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("March 28, 2018 18:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + ":" + hours + ":"
+    + minutes + ":" + seconds;
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
+</div>
+
+<div id="footer">2018 HBL PSL. All rights reserved | Powered By Syed Mohib</div>
+</body>
+
+</html>
